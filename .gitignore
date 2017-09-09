@@ -3,3 +3,4 @@ db/*
 !db/.empty
 shared/*
 !shared/.empty
+pgadmin4.db
