@@ -16,6 +16,7 @@ pl1=5432
 pd1=5432
 pl2=5050
 pd2=5050
+passwd=ysu123
 
 
 create: create-psql create-pgadmin
@@ -23,7 +24,7 @@ create: create-psql create-pgadmin
 create-psql:
 	[ -d ${vol1} ] || mkdir ${vol1}
 	[ -d ${vol2} ] || mkdir ${vol2}
-	docker run -d -it --name ${name} -v ${vol1}:${mnt1} -v ${vol2}:${mnt2} -p ${pl1}:${pd1} ${image}
+	docker run -d -it --name ${name} -v ${vol1}:${mnt1} -v ${vol2}:${mnt2} -p ${pl1}:${pd1} -e POSTGRES_PASSWORD=${passwd} ${image}
 
 create-pgadmin:
 	[ -d ${vol3} ] || mkdir ${vol3}
